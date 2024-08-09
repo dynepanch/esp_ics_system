@@ -88,26 +88,25 @@ void servo_send(byte serial,byte id){
 }
 
 void servo_move(void) {
-  if(servo_timer>80){
+  if(servo_timer>70){
     servo_timer=0;
-  }else if(servo_timer>70){
-    servo_send(1,12);
   }else if(servo_timer>60){
+    servo_send(0,6);
     servo_send(1,11);
-    servo_send(2,8);
+    servo_send(2,12);
   }else if(servo_timer>50){
-    servo_send(2,7);
+    servo_send(0,7);
     servo_send(1,10);
   }else if(servo_timer>40){
     servo_send(0,16);
     servo_send(1,18);
-    servo_send(2,6);
   }else if(servo_timer>30){
     servo_send(0,15);
     servo_send(1,17);
     servo_send(2,13);
   }else if(servo_timer>20){
     servo_send(0,2);
+    servo_send(2,8);
     servo_send(1,5);
   }else if(servo_timer>10){
     servo_send(0,1);

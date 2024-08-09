@@ -95,21 +95,21 @@ void rightleg(int mata,int momo,int hiza,int kubi){
 	
 	if(mata<360){
 		mata*=-2;
-		mata+=10;
+		mata+=20;
 		set_angle(13,mata);
 	}else{
 		servo_free(13);
 	}
 	if(momo<360){
 		momo*=-2;
-		momo+=50;
+		momo+=45;
 		set_angle(12,momo);
 	}else{
 		servo_free(12);
 	}
 	if(hiza<360){
 		hiza*=2;
-		hiza+=40;
+		hiza+=50;
 		set_angle(11,hiza);
 	}else{
 		servo_free(11);

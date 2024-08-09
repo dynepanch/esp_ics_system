@@ -35,7 +35,7 @@ void setup() {
   
   delay(500);
    // タイマーの設定
-  typerion = timerBegin(0,getApbFrequency() / 1000000, true);  // 80はAPBクロックの分周比を指定
+  typerion = timerBegin(0,80, true);  // 80はAPBクロックの分周比を指定
   timerAttachInterrupt(typerion, &onTimer, true);
   timerAlarmWrite(typerion, 400, true);
   timerAlarmEnable(typerion);
