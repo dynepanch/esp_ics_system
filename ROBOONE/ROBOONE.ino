@@ -37,7 +37,7 @@ void setup() {
    // タイマーの設定
   typerion = timerBegin(0,80, true);  // 80はAPBクロックの分周比を指定
   timerAttachInterrupt(typerion, &onTimer, true);
-  timerAlarmWrite(typerion, 400, true);
+  timerAlarmWrite(typerion, 300, true);
   timerAlarmEnable(typerion);
 }
 
@@ -46,7 +46,7 @@ void loop() {
   if (Ps3.isConnected()){  
         CNTR_PUTS();
     }else{
-      start();
+      toruqe_off();
     }
   servo_move();    
   

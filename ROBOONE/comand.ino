@@ -35,10 +35,10 @@ unsigned int ps3_cmmand_2() {
   if (Ps3.event.button_up.r1) ps3_cmd |= 0x08;
   if (Ps3.event.button_down.l1) ps3_cmd &= 0xfb;
   if (Ps3.event.button_up.l1) ps3_cmd |= 0x04;
-  if (Ps3.data.analog.button.r2>40) ps3_cmd &= 0xfd;
-  if (Ps3.data.analog.button.r2<40) ps3_cmd |= 0x02;
-  if (Ps3.data.analog.button.l2>40) ps3_cmd &= 0xfe;
-  if (Ps3.data.analog.button.l2<40) ps3_cmd |= 0x01;
+  if (Ps3.data.analog.button.r2>70) ps3_cmd &= 0xfd;
+  if (Ps3.data.analog.button.r2<70) ps3_cmd |= 0x02;
+  if (Ps3.data.analog.button.l2>70) ps3_cmd &= 0xfe;
+  if (Ps3.data.analog.button.l2<70) ps3_cmd |= 0x01;
   return ps3_cmd;
 }
 unsigned int CONTLLOR(void){

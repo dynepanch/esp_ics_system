@@ -23,6 +23,10 @@ void servo_free(int id) {
 
 void servo_send(byte serial,byte id){
   static unsigned int counter[30];
+  if(angle[id]!=0){
+    if(angle[id]<3500)angle[id]=3500;
+    if(angle[id]>11500)angle[id]=11500;
+  }
   switch(serial){
     case 0:
       if(angle[id]==0){
