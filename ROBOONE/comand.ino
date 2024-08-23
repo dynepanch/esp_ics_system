@@ -35,10 +35,10 @@ unsigned int ps3_cmmand_2() {
   if (Ps3.event.button_up.r1) ps3_cmd |= 0x08;
   if (Ps3.event.button_down.l1) ps3_cmd &= 0xfb;
   if (Ps3.event.button_up.l1) ps3_cmd |= 0x04;
-  if (Ps3.data.analog.button.r2>70) ps3_cmd &= 0xfd;
-  if (Ps3.data.analog.button.r2<70) ps3_cmd |= 0x02;
-  if (Ps3.data.analog.button.l2>70) ps3_cmd &= 0xfe;
-  if (Ps3.data.analog.button.l2<70) ps3_cmd |= 0x01;
+  if (Ps3.data.analog.button.r2>100) ps3_cmd &= 0xfd;
+  if (Ps3.data.analog.button.r2<100) ps3_cmd |= 0x02;
+  if (Ps3.data.analog.button.l2>100) ps3_cmd &= 0xfe;
+  if (Ps3.data.analog.button.l2<100) ps3_cmd |= 0x01;
   return ps3_cmd;
 }
 unsigned int CONTLLOR(void){
@@ -46,7 +46,17 @@ unsigned int CONTLLOR(void){
   static int cont_2= ps3_cmmand_1();
   cont_1= ps3_cmmand_2();
   cont_2= ps3_cmmand_1();
-  
-  
+   
   return cont_1 | cont_2*0x100;
+}
+
+void con_bat(void){
+  int battery = 0;
+  if( battery != Ps3.data.status.battery ){
+        battery = Ps3.data.status.battery;
+        Serial.print("The controller battery is ");
+        if( battery == ps3_status_battery_low){
+          Ps3.setRumble(100.0, 1000);
+        }
+    }
 }

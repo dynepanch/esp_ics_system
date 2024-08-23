@@ -15,6 +15,7 @@ void LEDOUT(int mode) {
 }
 void onConnect() {
   // LEDOUT(0x00);
+  Ps3.setRumble(100.0, 1000);
 }
 void ltica(void) {
   if (ltimer > 2000) {
